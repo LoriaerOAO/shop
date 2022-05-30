@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'FuturaLT-Light';
+}
+body{
+  min-width: 1280px;
+  max-width: 1920px;
+}
+// 字体引入
+@font-face{
+  font-family: FuturaLT-Light;
+  src: url("@/assets/fonts/FuturaLT-Light.otf")
+}

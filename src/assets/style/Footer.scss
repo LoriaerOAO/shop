@@ -1,0 +1,173 @@
+// 打横居中
+@mixin center($d: flex, $f: row, $j: center, $a: center) {
+    display: $d;
+    flex-direction: $f;
+    justify-content: $j;
+    align-items: $a;
+  }
+  // 打横靠边
+  @mixin row-between($d: flex, $f: row, $j: space-between, $a: center) {
+    display: $d;
+    flex-direction: $f;
+    justify-content: $j;
+    align-items: $a;
+  }
+  // 打横间隙一致
+  @mixin row-around($d: flex, $f: row, $j: space-around, $a: center) {
+    display: $d;
+    flex-direction: $f;
+    justify-content: $j;
+    align-items: $a;
+  }
+/* 页尾 */
+footer {
+    height: 340px;
+    // 上半部分
+    .footer_top {
+      width: 100%;
+      height: 300px;
+      background-color: #1b1b1b;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: -150px 0px;
+      overflow: hidden;
+      @include center();
+      .footer_top_content {
+        width: 75%;
+        // width: 1170px;
+        height: 200px;
+        @include row-between($a: flex-start);
+        // WORKING HOURS
+        .working_hours {
+          width: 310px;
+          height: 232px;
+          .working_hours_title {
+            font-size: 16px;
+            color: #fff;
+          }
+          .working_hours_content {
+            margin-top: 40px;
+            height: 108px;
+            font-size: 14px;
+            color: #a4a4a4;
+            @include row-between($f: column, $a: flex-start);
+          }
+        }
+        // 中间部分
+        .middle {
+          width: 390px;
+          height: 200px;
+          @include row-between($f: column);
+          position: relative;
+          &::before {
+            content: "";
+            width: 1px;
+            height: 165px;
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            left: -40px;
+          }
+          &::after {
+            content: "";
+            width: 1px;
+            height: 165px;
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            right: -40px;
+          }
+          .middle_logo {
+            width: 160px;
+            height: 26px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .middle_content {
+            font-size: 14px;
+            color: #a4a4a4;
+            text-align: center;
+            line-height: 26px;
+          }
+          // 矢量
+          .middle_link {
+            height: 45px;
+            @include center();
+            .middle_link_facebook {
+              width: 40px;
+              height: 40px;
+              margin: 8px;
+              border-radius: 50%;
+              background-color: rgba(225, 225, 225, 0.1);
+              @include center();
+              a {
+                font-size: 16px;
+                text-decoration: none;
+                color: #fff;
+              }
+            }
+            .middle_link_email {
+              @extend .middle_link_facebook;
+            }
+            .middle_link_twitter {
+              @extend .middle_link_facebook;
+            }
+            .middle_link_youtube {
+              @extend .middle_link_facebook;
+            }
+          }
+        }
+        // SUBSCRIBE
+        .subscribe {
+          width: 310px;
+          .subscribe_title {
+            font-size: 16px;
+            color: #fff;
+          }
+          .subscribe_content {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #a4a4a4;
+          }
+          // 输入框
+          .subscribe_input {
+            width: 280px;
+            height: 40px;
+            margin-top: 40px;
+            position: relative;
+            input {
+              width: 310px;
+              height: 50px;
+              border: 0px;
+              background-color: rgba(253, 243, 234, 0.2);
+            }
+            input::-webkit-input-placeholder {
+              color: #fff;
+              text-indent: 15px;
+              font-size: 14px;
+            }
+            a {
+              width: 30px;
+              height: 30px;
+              text-decoration: none;
+              color: #ffa323;
+              position: absolute;
+              top: 10px;
+              left: 270px;
+              i {
+                font-size: 32px;
+              }
+            }
+          }
+        }
+      }
+    }
+    // 下半部分
+    .footer_bottom {
+      height: 40px;
+      background-color: #000;
+      @include center();
+      color: #fff;
+      font-size: 12px;
+    }
+  }

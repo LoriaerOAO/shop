@@ -1,0 +1,179 @@
+// 打横居中
+@mixin center($d: flex, $f: row, $j: center, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+// 打横靠边
+@mixin row-between($d: flex, $f: row, $j: space-between, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+/* 顶部背景 */
+header {
+  height: 500px;
+  background-image: url(@/assets/image/swiper1.jpg);
+  // background-position: 0 -50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  @include center();
+  .words {
+    letter-spacing: 2px;
+    p:nth-of-type(1) {
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    p:nth-of-type(2) {
+      font-size: 44px;
+      color: #fff;
+    }
+  }
+}
+/* 女士服饰标题板块 */
+.clothes_title {
+  width: 100%;
+  height: 400px;
+  @include center();
+  .content {
+    width: 60%;
+    height: 366px;
+    @include row-between();
+    // 左边文字
+    .left {
+      width: 60%;
+      height: 366px;
+      @include center($f: column);
+      .title {
+        width: 100%;
+        height: 44px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #1b1b1b;
+        text-align: center;
+        letter-spacing: 2px;
+      }
+      .words {
+        margin-top: 35px;
+        width: 100;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+        p {
+          color: #666666;
+        }
+      }
+    }
+    // 右边图片
+    .right {
+      width: 50%;
+      height: 100%;
+      img {
+        width: 80%;
+        height: 100%;
+      }
+    }
+  }
+}
+/* 女士服饰分类 */
+.clothes_classify {
+  width: 98%;
+  margin: 0 auto;
+  background-color: #e6e6e6;
+  .content {
+    width: 100%;
+    // 商品列表
+    .goods_list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      // 商品
+      .goods {
+        width: 20%;
+        height: 300px;
+        position: relative;
+        background-color: #e6e6e6;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+        @include center($f: column);
+        &:hover .details {
+          visibility: visible;
+        }
+        .picture {
+          width: 260px;
+          height: 260px;
+          margin-bottom: 20px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        // 详情框
+        .details {
+          display: block;
+          width: 100%;
+          height: 380px;
+          background-color: #fff;
+          font-size: 24px;
+          color: #fff;
+          position: absolute;
+          @include center($f: column);
+          top: 0;
+          visibility: hidden;
+          z-index: 5;
+          img {
+            width: 260px;
+            height: 260px;
+            margin-bottom: 10px;
+          }
+          p:nth-of-type(1) {
+            margin-top: -20px;
+            font-size: 12px;
+            color: #4b4b4b;
+          }
+          p:nth-of-type(2) {
+            font-size: 12px;
+            color: #969696;
+            margin-top: 22px;
+            margin-bottom: 26px;
+          }
+        }
+      }
+    }
+  }
+}
+/* 女士手袋标题 */
+.handbag_title {
+  @extend .clothes_title;
+}
+/* 女士手袋分类 */
+.handbag_classify {
+  @extend .clothes_classify;
+  margin-bottom: 10px;
+}
+/* 女士鞋子标题 */
+.shoes_title {
+  @extend .clothes_title;
+  // 右边图片
+  .right {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    img {
+      width: 80% !important;
+      height: 100%;
+      position: absolute;
+      top: -100px;
+      left: 0;
+    }
+  }
+}
+/* 女士鞋子分类 */
+.shoes_classify {
+  @extend .clothes_classify;
+  margin-bottom: 10px;
+}

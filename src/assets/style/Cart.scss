@@ -1,0 +1,233 @@
+// 打横居中
+@mixin center($d: flex, $f: row, $j: center, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+// 打横靠边
+@mixin row-between($d: flex, $f: row, $j: space-between, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+/* 顶部背景 */
+header {
+  height: 370px;
+  background-image: url(@/assets/image/bg2.jpg);
+  background-position: 0 -360px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  @include center();
+  .words {
+    letter-spacing: 2px;
+    p:nth-of-type(1) {
+      font-size: 12px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    p:nth-of-type(2) {
+      font-size: 42px;
+      color: #fff;
+    }
+  }
+}
+/* 主体部分 */
+main {
+  width: 98%;
+  margin: 10px auto;
+  background-color: #e6e6e6;
+}
+// 内容
+.cart_content {
+  width: 80%;
+  @include center($a: flex-start);
+  margin: 0 auto;
+}
+// 左边
+.left {
+  width: 70%;
+  // 全选
+  .all {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    color: #999999 !important;
+    input {
+      border: none;
+    }
+    p {
+      margin-left: 20px;
+    }
+  }
+  hr {
+    width: 90%;
+    color: #999999;
+    margin-top: 15px;
+  }
+  //   商品列表
+  .goodsList {
+    width: 100%;
+    //   商品
+    .goods {
+      width: 85%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 45px;
+      // 图片
+      .goods_img {
+        width: 207px;
+        height: 207px;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0px;
+          bottom: 50px;
+        }
+      }
+    }
+    // 细节
+    .details {
+      width: 250px;
+      text-align: left;
+      letter-spacing: 1px;
+      p:nth-of-type(1) {
+        font-size: 14px;
+        color: #1b1b1b;
+      }
+      p:nth-of-type(2) {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #999999;
+      }
+      p:nth-of-type(3) {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #7c7c7c;
+      }
+      button {
+        margin-top: 20px;
+        width: 50px;
+        height: 20px;
+        text-align: left;
+        font-size: 13px;
+        border: none;
+        // border:1px solid #1b1b1b;
+        cursor: pointer;
+        background-color: transparent;
+      }
+    }
+    // 数量
+    .counts {
+      // margin-left: 30px;
+      width: 60px;
+      height: 25px;
+      select {
+        width: 100%;
+        height: 100%;
+        color: #1b1b1b;
+        text-align: center;
+        background-color: transparent;
+      }
+    }
+    // 价格
+    .price {
+      // margin-left: 50px;
+      text-align: right;
+    }
+  }
+}
+// 右边
+.right {
+  margin-top: 40px;
+  width: 30%;
+  margin-left: -30px;
+  background-color: #fff;
+  margin-bottom: 40px;
+  .right_content {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    // 标题
+    .title {
+      margin-top: 30px;
+      //   margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      letter-spacing: 1px;
+      justify-content: space-between;
+      p:nth-of-type(2) {
+        color: #999999;
+      }
+    }
+    hr {
+      margin-top: 20px;
+    }
+    // 总价格
+    .content {
+      .top {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        letter-spacing: 1px;
+        justify-content: space-between;
+      }
+      .middle {
+        @extend .top;
+        p:nth-of-type(2) {
+          color: #999999;
+        }
+      }
+      .bottom {
+        @extend .top;
+        p:nth-of-type(2) {
+          font-size: 16px;
+        }
+      }
+    }
+    // 说明
+    .explain {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 12px;
+      p {
+        color: #999999;
+      }
+      p:nth-of-type(2) {
+        margin-top: 25px;
+      }
+    }
+    // 按钮
+    .btnList {
+      margin-top: 10px;
+      a {
+        
+        button {
+          width: 100%;
+          cursor: pointer;
+          height: 40px;
+          margin-top: 20px;
+          border: none;
+          font-size: 12px;
+        }
+      }
+      a:nth-of-type(1) button {
+        background-color: #1b1b1b;
+        color: #e5dfd9;
+      }
+      a:nth-of-type(2) button{
+        background-color: #fff;
+        border: 1px solid #1b1b1b;
+      }
+    }
+  }
+}

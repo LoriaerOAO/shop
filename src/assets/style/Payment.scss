@@ -1,0 +1,229 @@
+// 打横居中
+@mixin center($d: flex, $f: row, $j: center, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+// 打横靠边
+@mixin row-between($d: flex, $f: row, $j: space-between, $a: center) {
+  display: $d;
+  flex-direction: $f;
+  justify-content: $j;
+  align-items: $a;
+}
+// 主体部分
+main {
+  width: 98%;
+  margin: 10px auto;
+  background-color: #e6e6e6;
+}
+// 内容
+.payment_content {
+  width: 80%;
+  @include row-between($a: flex-start);
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+// 左边
+.left {
+  width: 75%;
+  margin-top: 40px;
+  // 标题
+  .title {
+    p {
+      text-align: left;
+      font-size: 20px;
+    }
+  }
+  // 内容
+  .address_content {
+    width: 100%;
+    margin-top: 15px;
+    .addressList {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      li {
+        height: 142px;
+        width: 268px;
+        margin-left: 15px;
+        margin-top: 15px;
+        padding: 10px;
+        border: 1px solid #aba7a7;
+        text-align: left;
+        font-size: 12px;
+        line-height: 20px;
+        color: #313131;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        p:nth-of-type(1) {
+          font-weight: bolder;
+          font-size: 13px;
+          color: #1b1b1b;
+        }
+        p:nth-of-type(4) {
+          color: #1b1b1b;
+          margin-top: 20px;
+        }
+      }
+      .add {
+        @include center();
+        font-size: 13px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+// 右边
+.right {
+  margin-top: 40px;
+  width: 30%;
+  margin-left: -30px;
+  background-color: #fff;
+  margin-bottom: 40px;
+  .right_content {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    // 标题
+    .title {
+      margin-top: 30px;
+      //   margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      font-size: 12px;
+      letter-spacing: 1px;
+      justify-content: space-between;
+      p:nth-of-type(2) {
+        color: #999999;
+      }
+    }
+    hr {
+      margin-top: 20px;
+    }
+    // 商品列表
+    .goodsList {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      // 商品
+      .goods {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        // 图片
+        .goods_img {
+          width: 120px;
+          height: 100px;
+          // overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        // 细节
+        .details {
+          width: 68%;
+          text-align: left;
+          letter-spacing: 1px;
+          margin-top: 10px;
+          font-size: 12px;
+          color: #999999;
+          p:nth-of-type(1) {
+            font-size: 14px;
+            color: #1b1b1b;
+          }
+          p:nth-of-type(3) {
+            color: #1b1b1b;
+          }
+          p:nth-of-type(4) {
+            text-align: right;
+            margin-top: 5px;
+            color: #1b1b1b;
+          }
+        }
+      }
+    }
+    // 总价格
+    .content {
+      .top {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        letter-spacing: 1px;
+        justify-content: space-between;
+      }
+      .middle {
+        @extend .top;
+        p:nth-of-type(2) {
+          color: #999999;
+        }
+      }
+      .bottom {
+        @extend .top;
+        p:nth-of-type(2) {
+          font-size: 16px;
+        }
+      }
+    }
+    // 说明
+    .explain {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 12px;
+      p {
+        color: #999999;
+      }
+      p:nth-of-type(2) {
+        margin-top: 25px;
+      }
+    }
+    // 按钮
+    .btnList {
+      margin-top: 10px;
+      button {
+        width: 100%;
+        cursor: pointer;
+        height: 40px;
+        margin-top: 20px;
+        border: none;
+        font-size: 12px;
+        background-color: #1b1b1b;
+        color: #e5dfd9;
+      }
+      a {
+        button {
+          background-color: #fff;
+          border: 1px solid #1b1b1b;
+          color: #1b1b1b;
+        }
+      }
+    }
+  }
+}
+.payment {
+  position: relative;
+}
+// 地址激活态
+.active {
+  border: 1px solid #1b1b1b !important;
+  // border: 1px solid #db4242;
+}
+// 新建地址弹窗
+// .pop_address{
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+// }
+// el-dialog{
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+// }
